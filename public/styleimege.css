@@ -1,0 +1,235 @@
+/* Carrusel horizontal responsivo para imagenesObra */
+.imagenes-carrusel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.imagenes-carrusel-lista {
+  display: flex;
+  gap: 32px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  min-width: 0;
+  justify-content: center;
+}
+
+.imagenes-carrusel-item {
+  background: linear-gradient(135deg, #1d283c 80%, #232b4a 100%);
+  border-radius: 22px;
+  box-shadow: 0 4px 24px rgba(10,34,57,0.18);
+  min-width: 320px;
+  max-width: 320px;
+  flex: 0 0 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 18px 14px 18px;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.imagenes-carrusel-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 32px rgba(0,188,212,0.15);
+}
+
+.imagenes-carrusel-imgbox {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.imagenes-carrusel-imgbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(10,34,57,0.08);
+}
+
+.imagenes-carrusel-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.imagenes-carrusel-desc {
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
+  transition: opacity 0.3s, max-height 0.3s, visibility 0.3s;
+  pointer-events: none;
+  background: rgba(29,40,60,0.65); /* Más transparente */
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px 12px 0 0;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: 2;
+  font-size: 1rem;
+  box-shadow: 0 2px 12px rgba(10,34,57,0.12);
+  width: 90%;
+  text-align: center;
+}
+
+.imagenes-carrusel-actions {
+  display: flex;
+  gap: 12px;
+}
+
+@media (max-width: 1100px) {
+  .imagenes-carrusel-item {
+    min-width: 220px;
+    max-width: 220px;
+    flex: 0 0 220px;
+  }
+  .imagenes-carrusel-imgbox {
+    height: 120px;
+  }
+}
+
+
+
+/* Carrusel Arrow Mejorado */
+.carrusel-arrow {
+  background: rgba(40, 105, 255, 0.18); /* Azul translúcido */
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  width: 70px;
+  height: 48px;
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 0 16px;
+  box-shadow: 0 2px 12px rgba(10,34,57,0.10);
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+}
+
+.carrusel-arrow:hover, .carrusel-arrow:focus {
+  background: rgba(0, 151, 167, 0.32);
+  transform: scale(1.08);
+  outline: none;
+}
+
+.carrusel-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: rgba(40, 105, 255, 0.10);
+}
+
+@media (max-width: 700px) {
+  .carrusel-arrow {
+    width: 48px;
+    height: 36px;
+    font-size: 1.3rem;
+    margin: 0 6px;
+  }
+}
+
+.imagenes-carrusel-item:hover .imagenes-carrusel-desc,
+.imagenes-carrusel-imgbox:hover + .imagenes-carrusel-info .imagenes-carrusel-desc {
+  opacity: 1;
+  visibility: visible;
+  max-height: 200px;
+  pointer-events: auto;
+}
+
+.ver-mas-carrusel {
+  position: absolute;
+  top: -18px;
+  right: 0;
+  font-size: 1rem;
+  color: #2869ff;
+  background: rgba(255,255,255,0.85);
+  padding: 4px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(40,105,255,0.06);
+  transition: background 0.2s;
+}
+
+.ver-mas-carrusel:hover {
+  background: #e3f0ff;
+}
+
+
+
+
+
+
+.imagenes-collage-simple {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+  margin: 32px 0;
+}
+
+.imagen-collage-item {
+  position: relative;
+  width: 275px;
+  height: auto;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(10,34,57,0.10);
+  background: #232b4a;
+  transition: transform 0.18s;
+  cursor: pointer;
+}
+
+.imagen-collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+}
+
+.collage-hover-info {
+  position: absolute;
+  inset: 0;
+  background: rgba(29,40,60,0.68);
+  color: #fff;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
+  padding: 0 0 18px 0;
+  transition: opacity 0.25s;
+}
+
+.imagen-collage-item:hover .collage-hover-info {
+  opacity: 1;
+}
+
+.collage-desc {
+  background: rgba(29,40,60,0.85);
+  padding: 10px 14px;
+  border-radius: 10px 10px 0 0;
+  font-size: 1rem;
+  margin: 0 12px 10px 12px;
+  text-align: center;
+}
+
+.collage-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
